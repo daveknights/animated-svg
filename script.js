@@ -12,11 +12,9 @@ const drawCircle = attrs => {
     const circle = document.createElementNS(svgns, 'circle');
 
     for (const [index, prop] of ['cx', 'cy', 'r', 'fill', 'stroke', 'stroke-width'].entries()) {
-        if (attrs[index] === undefined) {
-            continue;
+        if (attrs[index] !== undefined) {
+            circle.setAttribute(prop, attrs[index]);
         }
-
-        circle.setAttribute(prop, attrs[index]);
     }
 
     return circle;
